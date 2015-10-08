@@ -18,7 +18,7 @@ For a purpose of a starting ground, we can emulate the architecture of IBM's Wat
 * https://www.quora.com/Whats-the-system-architecture-of-the-IBM-Watson
 * https://www.quora.com/Did-IBM-publish-papers-describing-the-algorithms-used-in-IBM-Watson
 
-# Learning algorithms - Hierarchical Temporal Memory
+## Learning algorithms - Hierarchical Temporal Memory
 http://www.slideshare.net/numenta/2014-10-17-numenta-workshop?ref=http://numenta.com/learn/principles-of-hierarchical-temporal-memory.html
 http://www.slideshare.net/asfak/htm-theory
 http://numenta.org/resources/HTM_CorticalLearningAlgorithms.pdf
