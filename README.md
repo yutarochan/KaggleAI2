@@ -12,6 +12,8 @@ Kaggle AI2 Challenge Repository
 * https://wikipedia.readthedocs.org/en/latest/
 * https://pypi.python.org/pypi/wikitools
 * Simple Wikipedia - See if we can download the entire thing and build a structured database.
+* https://en.wikipedia.org/wiki/Wikipedia:Database_download
+
 
 ## High-Level Architecture References
 For a purpose of a starting ground, we can emulate the architecture of IBM's Watson. There's already a bundle of information, references and papers regarding its architecture and algorithms.
