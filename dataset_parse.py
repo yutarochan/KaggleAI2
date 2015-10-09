@@ -15,7 +15,7 @@ class Question(object):
 questions = []
 
 # Read Training Dataset
-file = open('training_set.tsv', 'r')
+file = open('data/training_set.tsv', 'r')
 file.readline() # Skip File Header
 
 # Parse Dataset
@@ -27,4 +27,12 @@ for data in file:
 # Check to see number of datasets
 # print len(questions)
 
-    
+# Print Out Sample Question Data
+ques = questions[0]
+
+print ques.question
+print ques.a
+print ques.b
+print ques.c
+print ques.d
+print ques.ans
