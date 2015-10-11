@@ -2,6 +2,8 @@ import nltk
 import fileUtil
 from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
+from nltk.stem.porter import *
+from nltk.stem.snowball import SnowballStemmer
 
 # Just a quick test of some of NLTK's functionality.
 
@@ -19,4 +21,12 @@ for word in word_list: # iterate over word_list
   if word in stops:
     filtered_word_list.remove(word)
 
-print filtered_word_list
+# Stemming Variation 1: Porter Stemmer
+# stemmer = PorterStemmer()
+# stemmed = [stemmer.stem(plural) for plural in filtered_word_list]
+# print stemmed
+
+# Stemming Variation 2: Snowball Stemmer
+stemmer = SnowballStemmer("english")
+stemmed = [stemmer.stem(plural) for plural in filtered_word_list]
+print stemmed
