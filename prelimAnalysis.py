@@ -5,14 +5,17 @@ from nltk.tokenize import RegexpTokenizer
 from nltk.stem.porter import *
 from nltk.stem.snowball import SnowballStemmer
 
-def preprocess(text)
+# Initially Load to Save Procesing Time
+tokenizer = RegexpTokenizer(r'\w+')
+stops = stopwords.words('english')
+stemmer = SnowballStemmer("english")
+
+def preprocess(text):
     # Tokenize and Remove Punctuation (Using regex tokenizer)
-    tokenizer = RegexpTokenizer(r'\w+')
     token = tokenizer.tokenize(text)
 
     # Stop Word Removal
     word_list = token[:]
-    stops = stopwords.words('english')
     filtered_word_list = word_list[:] #make a copy of the word_list
     for word in word_list: # iterate over word_list
       if word in stops:
@@ -24,7 +27,6 @@ def preprocess(text)
     # print stemmed
 
     # Stemming Variation 2: Snowball Stemmer
-    stemmer = SnowballStemmer("english")
     stemmed = [stemmer.stem(plural) for plural in filtered_word_list]
 
     return stemmed
@@ -34,4 +36,6 @@ if __name__ == "__main__":
     ques = fileUtil.parseTrainingSet('data/training_set.tsv')
 
     # Testing with just sample data...
-    preprocess
+    print preprocess(ques[0].question)
+    print preprocess(ques[1].question)
+    print preprocess(ques[2].question)
