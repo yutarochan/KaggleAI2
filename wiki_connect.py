@@ -16,12 +16,13 @@ my_conn = mysql.connector.connect(
 
 # establish the cursor ansd execute the query
 my_cur = my_conn.cursor()
-my_query = ("select old_text from text limit 500")
+my_query = ("select old_text from text limit 1000")
 my_cur.execute(my_query)
-basket = my_cur.fetchall()
+onerow = my_cur.fetchone()
 
-for eachrow in basket:
-    print (eachrow)
+while onerow is not None:
+    print (onerow)
+    onerow = my_cur.fetchone()
 
 # remember to close the cursor and db connection, just to be sure
 my_cur.close()
