@@ -14,9 +14,9 @@ my_conn = mysql.connector.connect(
     host='localhost',
     database='wiki')
 
-# establish the cursor ansd execute the query
+# establish the cursor and execute the query
 my_cur = my_conn.cursor()
-my_query = ("select old_text from text limit 1000")
+my_query = ("select old_text from text where (instr(old_text,'Clipper')>0 and instr(old_text,'the')>0) limit 15")
 my_cur.execute(my_query)
 onerow = my_cur.fetchone()
 
