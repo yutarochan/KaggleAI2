@@ -10,7 +10,7 @@ from mysql.connector import errorcode
 # create a connection to the MySQL database
 my_conn = mysql.connector.connect(
     user='root',
-    password='',
+    password='J@p@n6498!',
     host='localhost',
     database='wiki')
 
