@@ -43,6 +43,12 @@ class Result:
         return self.result['numFound']
 
 
+    def get_similar(self):
+        '''
+        Returns the similar words from the semantic vector data.
+        '''
+        return self.result['similar']
+
     def get_edges(self):
         '''
         Returns the number of edges returned in query result.
@@ -58,6 +64,8 @@ class Result:
         :param clean_self_ref: If it is set, the self referencing edges with any kind of
         relation, such as '/c/en/see_movie /r/Causes/ /c/en/see_move', will not be included
         in the returned list.
+
+        TODO: FIXUP THIS STUPID API TO MAKE SURE WE CAN PARSE THE EDGE DATA!!!!!!!
         '''
         edges = []
 

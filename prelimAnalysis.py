@@ -27,9 +27,9 @@ def preprocess(text):
     # print stemmed
 
     # Stemming Variation 2: Snowball Stemmer
-    stemmed = [stemmer.stem(plural) for plural in filtered_word_list]
+    # stemmed = [stemmer.stem(plural) for plural in filtered_word_list]
 
-    return stemmed
+    return filtered_word_list
 
 # Unit Testing
 if __name__ == "__main__":
