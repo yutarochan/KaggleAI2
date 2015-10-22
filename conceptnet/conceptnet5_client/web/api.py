@@ -23,11 +23,11 @@ class LookUp:
                 print_debug('%s : %s -- THIS ARG IS NOT SUPPORTED!' % (key, value), 'ArgError')
         self.encoded_query_args = urllib.urlencode(query_args)
         self.lang = lang
-    
+
 
     def search_concept(self, concept):
         '''
-        Constructs the search url for this instance of lookup object with specified query args 
+        Constructs the search url for this instance of lookup object with specified query args
         and specified concept and finally returns the result of the request in json format.
 
         :param concept: a concept word or phrase, e.g. 'toast', 'see movie' etc.
@@ -41,10 +41,10 @@ class LookUp:
 
     def search_source(self, source_uri = None):
         '''
-        Constructs the search url for this instance of lookup object with specified query args 
+        Constructs the search url for this instance of lookup object with specified query args
         and specified uri and finally returns the 50 statements submitted by this source.
 
-        :param source_uri: a uri specifying the source, e.g. '/s/contributor/omcs/rspeer', 
+        :param source_uri: a uri specifying the source, e.g. '/s/contributor/omcs/rspeer',
         '/s/wordnet/3.0', '/s/rule/sum_edges' etc.
         '''
         if source_uri:
@@ -57,7 +57,7 @@ class LookUp:
             sys.exit()
 
 
-            
+
 class Search:
     '''
     This class implements methods for more sophisticated query options.
@@ -71,11 +71,11 @@ class Search:
             else:
                 print_debug('%s : %s -- THIS ARG IS NOT SUPPORTED!' % (key, value), 'ArgError')
         self.encoded_query_args = urllib.urlencode(query_args)
-        
-        
+
+
     def search(self):
         '''
-        Constructs the search url for this instance of search object with specified query args 
+        Constructs the search url for this instance of search object with specified query args
         and returns the result of the request in json format.
         '''
         url = ''.join(['%s%s' % (settings.BASE_SEARCH_URL, '?')]) + self.encoded_query_args
@@ -83,7 +83,7 @@ class Search:
         json_data = make_http_request(url)
         return json_data
 
-        
+
 
 class Association:
     '''
@@ -120,9 +120,7 @@ class Association:
         :param term_list: a list of concepts.
         '''
         terms = ','.join(term_list)
-        url = ''.join(['%s/list/%s/%s' % (settings.BASE_ASSOCIATION_URL, self.lang, terms)]) + self.encoded_query_args
+        url = ''.join(['%s/list/%s/%s' % (settings.BASE_ASSOCIATION_URL, self.lang, terms)]) +"?"+ self.encoded_query_args
         print_debug(url, 'url')
         json_data = make_http_request(url)
         return json_data
-
-
