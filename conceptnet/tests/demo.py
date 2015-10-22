@@ -17,7 +17,7 @@ def demonstrate_lookup(concept):
         edge.print_edge()
         edge.print_all_attrs()
     print
-    
+
     print 'Demonstrating LookUp concept API cleaning self referencing edges'
     lookup = LookUp(offset=1, limit=1)
     data = lookup.search_concept(concept)
@@ -42,7 +42,7 @@ def demonstrate_search():
     r = Result(data)
     r.print_raw_result()
     print
-    
+
     s = Search(text='mariah carey', surfaceText='dion', something='anything')
     data = s.search()
     r = Result(data)
@@ -57,7 +57,7 @@ def demonstrate_association():
     r = Result(data)
     r.print_raw_result()
     print
-    
+
     a = Association()
     data = a.get_similar_concepts_by_term_list(['toast', 'cereal', 'juice', 'egg'])
     r = Result(data)
@@ -69,13 +69,13 @@ def demonstrate_association():
 
 def demonstrate_concepts_tuples_by_relations():
     concepts = ['/c/en/cat', '/c/en/animal', '/c/en/living']
-    #relations = ['/r/IsA', '/r/HasProperty', '/r/AtLocation', '/r/LocatedNear'] 
-    #relations = ['/r/HasPrerequisite', '/r/HasSubevent'] 
-    #relations = ['/r/HasPrerequisite', '/r/HasFirstSubevent'] 
-    relations = ['/r/ReceivesAction', '/r/HasProperty'] 
+    #relations = ['/r/IsA', '/r/HasProperty', '/r/AtLocation', '/r/LocatedNear']
+    #relations = ['/r/HasPrerequisite', '/r/HasSubevent']
+    #relations = ['/r/HasPrerequisite', '/r/HasFirstSubevent']
+    relations = ['/r/ReceivesAction', '/r/HasProperty']
     p = Path(concepts, relations)
     concepts_tuples = p.get_all_tuples_of_concepts()
-    pprint_paths(sys.stdout, concepts_tuples) 
+    pprint_paths(sys.stdout, concepts_tuples)
 
 
 def demonstrate_relations_tuples_by_concepts():
@@ -85,21 +85,21 @@ def demonstrate_relations_tuples_by_concepts():
     relations_tuples = p.get_all_tuples_of_relations()
     for t in relations_tuples:
         print t
-    #pprint_paths(sys.stdout, relations_tuples) 
+    #pprint_paths(sys.stdout, relations_tuples)
 
 
 def demonstrate_path_existence_check():
     concepts = ['/c/en/thunder', '/c/en/noise', '/c/en/loud']
     #concepts = ['/c/en/thunder', '/c/en/noise', '/c/en/sound', '/c/en/loud']
-    relations = ['/r/IsA', '/r/HasProperty'] 
+    relations = ['/r/IsA', '/r/HasProperty']
     p = Path(concepts, relations)
-    p.print_path()  
+    p.print_path()
     print 'Asking path existence...'
     exist = p.does_exist(print_where_breaks=True)
     if exist:
         print 'Path exist'
 
-    
+
 def main():
     #demonstrate_lookup('see movie')
     #demonstrate_search()
@@ -112,5 +112,5 @@ def main():
     #demonstrate_relations_tuples_by_concepts()
     #demonstrate_path_existence_check()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -18,8 +18,10 @@ def preprocess(text):
     word_list = token[:]
     filtered_word_list = word_list[:] #make a copy of the word_list
     for word in word_list: # iterate over word_list
-      if word in stops:
-        filtered_word_list.remove(word)
+        if word in stops:
+            filtered_word_list.remove(word)
+
+    # Note: Stemming should probably not be used, but I'll just leave this here.
 
     # Stemming Variation 1: Porter Stemmer
     # stemmer = PorterStemmer()
@@ -27,9 +29,9 @@ def preprocess(text):
     # print stemmed
 
     # Stemming Variation 2: Snowball Stemmer
-    stemmed = [stemmer.stem(plural) for plural in filtered_word_list]
+    # stemmed = [stemmer.stem(plural) for plural in filtered_word_list]
 
-    return stemmed
+    return filtered_word_list
 
 # Unit Testing
 if __name__ == "__main__":
